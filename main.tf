@@ -93,7 +93,7 @@ module "fargate_profile" {
   name         = "separate-fargate-profile"
   cluster_name = "my--fargate-cluster"
 
-  subnet_ids = module.vpc.eks_private_subnets
+  subnet_ids = [module.vpc.eks_private_subnets]
   selectors = [{
     namespace = "fargatens"
   }]
