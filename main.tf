@@ -103,5 +103,5 @@ module "fargate_profile" {
     Terraform   = "true"
   }
 
-  depends_on = module.vpc
+  depends_on = [module.vpc]
 }
