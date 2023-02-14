@@ -1,9 +1,9 @@
 terraform {
 
-  cloud {
-    workspaces {
-      name = "learn-terraform-eks"
-    }
+  backend "s3" {
+    bucket = "sgrsaga-aws-eks-20230213"
+    key    = "terraform.tfstate"
+    region = "ap-south-1"
   }
 
   required_providers {
