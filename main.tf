@@ -40,10 +40,6 @@ module "vpc" {
   }
 }
 
-output "eks_private_subnets" {
-  value = module.vpc.private_subnets
-}
-
 ## EKS Module
 /*
 module "eks" {
