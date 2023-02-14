@@ -74,6 +74,14 @@ module "eks" {
           namespace = "kube-system"
         }
       ]
+    },
+    nginx-ingress = {
+      name = "kube-system"
+      selectors = [
+        {
+          namespace = "ingress-nginx"
+        }
+      ]
     }
   }
 }
