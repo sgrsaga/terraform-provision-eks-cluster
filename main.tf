@@ -5,7 +5,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "education-eks-${random_string.suffix.result}"
+  cluster_name = "pipeline-eks-${random_string.suffix.result}"
 }
 
 resource "random_string" "suffix" {
@@ -66,15 +66,15 @@ module "eks" {
       max_size     = 3
       desired_size = 2
     }
-
-    two = {
-      name = "node-group-2"
-
-      instance_types = ["t3.small"]
-
-      min_size     = 1
-      max_size     = 2
-      desired_size = 1
+  }
+  fargate_profiles = {
+    default = {
+      name = "default"
+      selectors = [
+        {
+          namespace = "default"
+        }
+      ]
     }
   }
 }
