@@ -41,7 +41,7 @@ module "vpc" {
 }
 
 ## EKS Module
-/*
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.5.1"
@@ -58,17 +58,6 @@ module "eks" {
 
   }
 
-  eks_managed_node_groups = {
-    one = {
-      name = "node-group-1"
-
-      instance_types = ["t3.small"]
-
-      min_size     = 1
-      max_size     = 3
-      desired_size = 2
-    }
-  }
   fargate_profiles = {
     default = {
       name = "default"
@@ -77,11 +66,19 @@ module "eks" {
           namespace = "default"
         }
       ]
+    },
+    mynginxt = {
+      name = "mynginxt"
+      selectors = [
+        {
+          namespace = "nginxsn"
+        }
+      ]
     }
   }
 }
-*/
 
+/*
 module "fargate_profile" {
   source  = "terraform-aws-modules/eks/aws//modules/fargate-profile"
   version = "19.7.0"
@@ -101,3 +98,4 @@ module "fargate_profile" {
 
   depends_on = [module.vpc]
 }
+*/

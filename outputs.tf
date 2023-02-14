@@ -1,5 +1,5 @@
 
-/*
+
 output "cluster_endpoint" {
   description = "Endpoint for EKS control plane"
   value       = module.eks.cluster_endpoint
@@ -18,12 +18,4 @@ output "region" {
 output "cluster_name" {
   description = "Kubernetes Cluster Name"
   value       = module.eks.cluster_name
-}
-*/
-
-
-## Fargate EKS try outout
-output "eks_private_subnets" {
-  description = "Private subnets for Fargate profiles"
-  value = module.vpc.private_subnets
 }
