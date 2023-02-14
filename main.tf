@@ -68,10 +68,10 @@ module "eks" {
       ]
     },
     mynginxt = {
-      name = "mynginxt"
+      name = "kube-system"
       selectors = [
         {
-          namespace = "nginxsn"
+          namespace = "kube-system"
         }
       ]
     }
