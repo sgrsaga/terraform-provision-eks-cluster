@@ -96,7 +96,7 @@ module "fargate_profile" {
 
   subnet_ids = module.vpc.private_subnets
   selectors = [{
-    namespace = "kube-system"
+    namespace = "fargatens"
   }]
 
   tags = {
