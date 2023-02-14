@@ -40,6 +40,13 @@ module "vpc" {
   }
 }
 
+output "private_subnets" {
+  value = module.vpc.private_subnets
+  
+}
+
+## EKS Module
+/*
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.5.1"
@@ -77,4 +84,25 @@ module "eks" {
       ]
     }
   }
+}
+*/
+
+module "fargate_profile" {
+  source  = "terraform-aws-modules/eks/aws//modules/fargate-profile"
+  version = "19.7.0"
+
+  name         = "separate-fargate-profile"
+  cluster_name = "my--fargate-cluster"
+
+  subnet_ids = module.vpc.private_subnets
+  selectors = [{
+    namespace = "kube-system"
+  }]
+
+  tags = {
+    Environment = "dev"
+    Terraform   = "true"
+  }
+
+  depends_on = module.vpc
 }
