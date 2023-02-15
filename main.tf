@@ -82,8 +82,15 @@ module "eks" {
           namespace = "argocd"
         }
       ]
+    },
+    kubesystem = {
+      name = "kubesystem"
+      selectors = [
+        {
+          namespace = "kube-system"
+        }
+      ]
     }
-
   }
 }
 
