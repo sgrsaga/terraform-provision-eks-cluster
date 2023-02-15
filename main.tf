@@ -76,13 +76,22 @@ module "eks" {
       ]
     },
     nginx-ingress = {
-      name = "kube-system"
+      name = "nginx-ingress"
       selectors = [
         {
           namespace = "ingress-nginx"
         }
       ]
+    },
+    argocd = {
+      name = "argocdns"
+      selectors = [
+        {
+          namespace = "argocd"
+        }
+      ]
     }
+
   }
 }
 
