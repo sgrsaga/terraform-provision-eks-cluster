@@ -59,24 +59,17 @@ module "eks" {
   }
 
   ## Node group with 1 server for Ingress-Controller
-  node_groups = {
-      example = {
-        desired_capacity = 1
+  eks_managed_node_groups = {
+    one = {
+      name = "node-group-1"
 
-        instance_types = ["t2.micro"]
-        k8s_labels = {
-          Example    = "managed_node_groups"
-          GithubRepo = "terraform-aws-eks"
-          GithubOrg  = "terraform-aws-modules"
-        }
-        additional_tags = {
-          ExtraTag = "example"
-        }
-        update_config = {
-          max_unavailable_percentage = 50 # or set `max_unavailable`
-        }
-      }
+      instance_types = ["t3.small"]
+
+      min_size     = 1
+      max_size     = 1
+      desired_size = 1
     }
+  }
 
   ## Fargate profiles for data plane
   fargate_profiles = {
