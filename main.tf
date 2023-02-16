@@ -66,12 +66,13 @@ module "eks" {
       instance_types = ["t3.small"]
 
       min_size     = 1
-      max_size     = 1
-      desired_size = 1
+      max_size     = 3
+      desired_size = 2
     }
   }
 
   ## Fargate profiles for data plane
+  /*
   fargate_profiles = {
     default = {
       name = "default"
@@ -81,7 +82,7 @@ module "eks" {
         }
       ]
     },
-    /*
+
     ## Ingress Controller is not supported in Fargate we need node group to deploy Ingress
     nginx-ingress = {
       name = "nginx-ingress"
@@ -91,7 +92,6 @@ module "eks" {
         }
       ]
     },
-    */
     argocd = {
       name = "argocdns"
       selectors = [
@@ -109,6 +109,7 @@ module "eks" {
       ]
     }
   }
+  */
 }
 
 /*
