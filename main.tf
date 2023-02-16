@@ -81,6 +81,8 @@ module "eks" {
         }
       ]
     },
+    /*
+    ## Ingress Controller is not supported in Fargate we need node group to deploy Ingress
     nginx-ingress = {
       name = "nginx-ingress"
       selectors = [
@@ -89,6 +91,7 @@ module "eks" {
         }
       ]
     },
+    */
     argocd = {
       name = "argocdns"
       selectors = [
