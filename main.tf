@@ -59,7 +59,6 @@ module "eks" {
   }
 
   ## Node group with 1 server for Ingress-Controller
-  /*
   eks_managed_node_groups = {
     one = {
       name = "node-group-1"
@@ -71,7 +70,7 @@ module "eks" {
       desired_size = 2
     }
   }
-  */
+  /*
   ## Fargate profiles for data plane
   fargate_profiles = {
     default = {
@@ -109,6 +108,7 @@ module "eks" {
       ]
     }
   }
+  */
 }
 
 /*
