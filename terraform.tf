@@ -26,6 +26,11 @@ terraform {
       source  = "hashicorp/cloudinit"
       version = "~> 2.2.0"
     }
+
+    k8s = {
+      source  = "iplabs/alb-ingress-controller/kubernetes"
+      version = "3.4.0"
+    }
   }
 
   required_version = "~> 1.3"

@@ -159,7 +159,7 @@ module "alb_ingress_controller" {
   version = "3.1.0"
 
   providers = {
-    kubernetes = "kubernetes.eks"
+    kubernetes = kubernetes.eks
   }
 
   k8s_cluster_type = "eks"
