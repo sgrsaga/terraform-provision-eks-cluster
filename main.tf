@@ -58,7 +58,7 @@ module "eks" {
 
   }
 
-  ## Node group with 1 server for Ingress-Controller
+  ## Node group
   eks_managed_node_groups = {
     one = {
       name = "eks-ng1"
@@ -70,6 +70,8 @@ module "eks" {
       desired_size = 2
     }
   }
+  }
+
   /*
   ## Fargate profiles for data plane
   fargate_profiles = {
@@ -109,7 +111,7 @@ module "eks" {
     }
   }
   */
-}
+
 
 /*
 module "fargate_profile" {
@@ -134,7 +136,7 @@ module "fargate_profile" {
 */
 
 
-
+/*
 ## AWS Ingress 
 data "aws_region" "current" {}
 
@@ -168,3 +170,4 @@ module "alb_ingress_controller" {
     module.eks
   ]
 }
+*/
